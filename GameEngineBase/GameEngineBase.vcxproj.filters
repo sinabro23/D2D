@@ -34,6 +34,15 @@
     <ClInclude Include="GameEngineSoundPlayer.h">
       <Filter>Media</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineString.h">
+      <Filter>String</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineRandom.h">
+      <Filter>Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineObjectBase.cpp">
@@ -69,6 +78,15 @@
     <ClCompile Include="GameEngineSoundPlayer.cpp">
       <Filter>Media</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineString.cpp">
+      <Filter>String</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineRandom.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -100,6 +118,12 @@
     </Filter>
     <Filter Include="Lib\FMOD\Release">
       <UniqueIdentifier>{b98551d4-9e05-4bef-a07d-f104ee486fd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String">
+      <UniqueIdentifier>{0f6c42da-cf23-45ef-bcdf-93de81b8a025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{5fdf0e02-afbd-483a-8f4d-d08d092e26d7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

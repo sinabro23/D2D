@@ -8,11 +8,18 @@
 
 // constructer destructer
 GameEngineFile::GameEngineFile()
-	: OpenMode("")
+	: OpenMode(""), fileHandle_(nullptr)
 {
 }
 
+GameEngineFile::GameEngineFile(const std::filesystem::path& _Path)
+	: GameEnginePath(_Path), fileHandle_(nullptr)
+{
+
+}
+
 GameEngineFile::GameEngineFile(const std::string& _Path)
+	: fileHandle_(nullptr)
 {
 	path_ = _Path;
 	if (false == IsExist())
@@ -40,23 +47,23 @@ GameEngineFile::~GameEngineFile()
 }
 
 GameEngineFile::GameEngineFile(GameEngineFile&& _other) noexcept
-	: GameEnginePath(_other)
+	: GameEnginePath(_other), fileHandle_(nullptr)
 {
 }
 
 //member Func
 
-void GameEngineFile::Open(const std::string& _Mode) 
+void GameEngineFile::Open(const std::string& _Mode)
 {
 	OpenMode = _Mode;
-	fopen_s(&fileHandle_, path_.c_str(), _Mode.c_str());
+	fopen_s(&fileHandle_, path_.string().c_str(), _Mode.c_str());
 	if (nullptr == fileHandle_)
 	{
 		GameEngineDebug::AssertFalse();
 	}
 }
 
-void GameEngineFile::Close() 
+void GameEngineFile::Close()
 {
 	if (nullptr != fileHandle_)
 	{
@@ -65,7 +72,7 @@ void GameEngineFile::Close()
 	}
 }
 
-void GameEngineFile::Write(const void* _Data, size_t _Size) 
+void GameEngineFile::Write(const void* _Data, size_t _Size)
 {
 	// 쓰기용으로 파일을 열지 않고
 	// 왜 쓰려고 하는냐에 대한 예외처리입니다.

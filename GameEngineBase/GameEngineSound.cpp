@@ -3,6 +3,7 @@
 #include "GameEngineDebug.h"
 #include "GameEngineSoundFile.h"
 #include "GameEngineSoundPlayer.h"
+#include "GameEnginePath.h"
 
 
 GameEngineSound* GameEngineSound::Inst = new GameEngineSound();
@@ -25,7 +26,7 @@ GameEngineSound::~GameEngineSound()
 		{
 			if (nullptr != *StartIter)
 			{
-				delete *StartIter;
+				delete* StartIter;
 			}
 		}
 		allSoundPlayer_.clear();
@@ -71,7 +72,7 @@ GameEngineSoundFile* GameEngineSound::FindSound(const std::string& _name)
 	return FindIter->second;
 }
 
-void GameEngineSound::SoundUpdate() 
+void GameEngineSound::SoundUpdate()
 {
 	if (nullptr == soundSystem_)
 	{
@@ -91,7 +92,12 @@ GameEngineSoundPlayer* GameEngineSound::CreateSoundPlayer()
 	return  NewSoundplayer;
 }
 
-void GameEngineSound::LoadSound(const std::string& _name, const std::string& _path) 
+void GameEngineSound::LoadSound(const std::string& _path)
+{
+	LoadSound(GameEnginePath::GetFileName(_path), _path);
+}
+
+void GameEngineSound::LoadSound(const std::string& _name, const std::string& _path)
 {
 	if (nullptr != FindSound(_name))
 	{
@@ -112,7 +118,7 @@ void GameEngineSound::LoadSound(const std::string& _name, const std::string& _pa
 		std::map<std::string, GameEngineSoundFile*>::value_type(_name, newLoadSound));
 }
 
-void GameEngineSound::PlaySoundOneShot(const std::string& _name) 
+void GameEngineSound::PlaySoundOneShot(const std::string& _name)
 {
 	GameEngineSoundFile* SoundPtr = FindSound(_name);
 

@@ -59,6 +59,9 @@ private:
 
 public:
 	void Initialize();
+
+	void LoadSound(const std::string& _path);
+
 	void LoadSound(const std::string& _name, const std::string& _path);
 	void PlaySoundOneShot(const std::string& _name);
 	GameEngineSoundPlayer* CreateSoundPlayer();
@@ -66,7 +69,7 @@ public:
 public:
 	void SoundUpdate();
 
-private:		
+private:
 	GameEngineSound(); // default constructer 디폴트 생성자
 	~GameEngineSound(); // default destructer 디폴트 소멸자
 

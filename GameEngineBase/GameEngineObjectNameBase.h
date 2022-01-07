@@ -35,4 +35,3 @@ private:		//delete operator
 public:
 };
 
-
