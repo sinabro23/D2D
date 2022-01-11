@@ -1,6 +1,6 @@
 #include "PreCompile.h"
 #include "GameEngineSoundPlayer.h"
-#include "GameEngineSoundFile.h"
+#include "GameEngineSound.h"
 #include "GameEngineDebug.h"
 
 
@@ -27,7 +27,7 @@ GameEngineSoundPlayer::GameEngineSoundPlayer(GameEngineSoundPlayer&& _other) noe
 
 //member Func
 
-bool GameEngineSoundPlayer::IsPlay() 
+bool GameEngineSoundPlayer::IsPlay()
 {
 	bool Check = false;
 	// 이 FMOD를 짠사람이 그냥 이렇게 짠거에요.
@@ -35,14 +35,14 @@ bool GameEngineSoundPlayer::IsPlay()
 	return Check;
 }
 
-void GameEngineSoundPlayer::PlayCountReset(int _Count /*= -1*/) 
+void GameEngineSoundPlayer::PlayCountReset(int _Count /*= -1*/)
 {
 	PlayCount = _Count;
 }
 
 void GameEngineSoundPlayer::PlayOverLap(const std::string& _name, int _LoopCount/* = 1*/)
 {
-	GameEngineSoundFile* SoundPtr = GameEngineSound::GetInst().FindSound(_name);
+	GameEngineSound* SoundPtr = GameEngineSoundManager::GetInst().FindSound(_name);
 
 	if (nullptr == SoundPtr)
 	{
@@ -55,7 +55,7 @@ void GameEngineSoundPlayer::PlayOverLap(const std::string& _name, int _LoopCount
 		return;
 	}
 
-	GameEngineSound::GetInst().soundSystem_->playSound(
+	GameEngineSoundManager::GetInst().soundSystem_->playSound(
 		SoundPtr->sound_
 		, nullptr
 		, false
@@ -64,13 +64,13 @@ void GameEngineSoundPlayer::PlayOverLap(const std::string& _name, int _LoopCount
 	--PlayCount;
 
 	playChannel_->setLoopCount(_LoopCount);
-	
+
 }
 
-void GameEngineSoundPlayer::PlayAlone(const std::string& _name, int _LoopCount /*= 1*/) 
+void GameEngineSoundPlayer::PlayAlone(const std::string& _name, int _LoopCount /*= 1*/)
 {
 	// 함수를 만들어서 그함수를 다시 실행
-	GameEngineSoundFile* SoundPtr = GameEngineSound::GetInst().FindSound(_name);
+	GameEngineSound* SoundPtr = GameEngineSoundManager::GetInst().FindSound(_name);
 
 	if (nullptr == SoundPtr)
 	{
@@ -88,7 +88,7 @@ void GameEngineSoundPlayer::PlayAlone(const std::string& _name, int _LoopCount /
 		return;
 	}
 
-	GameEngineSound::GetInst().soundSystem_->playSound(
+	GameEngineSoundManager::GetInst().soundSystem_->playSound(
 		SoundPtr->sound_
 		, nullptr
 		, false

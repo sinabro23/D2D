@@ -16,7 +16,7 @@ private:
 	static GameEngineWindow* Inst;
 
 public:
-	static GameEngineWindow& GetInst() 
+	static GameEngineWindow& GetInst()
 	{
 		return *Inst;
 	}
@@ -61,7 +61,7 @@ public:
 
 
 private:
-	void CreateMainWindowClass();
+	int CreateMainWindowClass();
 
 public:
 	void CreateMainWindow(const std::string& _titlename, const float4& _size, const float4& _pos);
