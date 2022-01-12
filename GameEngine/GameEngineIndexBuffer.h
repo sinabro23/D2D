@@ -1,13 +1,17 @@
 #pragma once
 #include <vector>
+#include <GameEngineBase/GameEngineObjectNameBase.h>
 
 // 분류 : 
 // 용도 : 
 // 설명 : 
-class GameEngineIndexBuffer
+class GameEngineIndexBuffer : public GameEngineObjectNameBase
 {
-private:	// member Var
+public:	// member Var
 	std::vector<int> Indexs;
+	// 0 1 3 
+	// 0 3 2
+	// 0 4 1
 
 public:
 	GameEngineIndexBuffer(); // default constructer 디폴트 생성자

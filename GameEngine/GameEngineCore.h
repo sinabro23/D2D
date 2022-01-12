@@ -22,7 +22,7 @@ private:		//delete operator
 	GameEngineCore& operator=(const GameEngineCore&& _other) = delete; // default RValue Copy operator 디폴트 RValue 대입연산자
 
 private:
-	static GameEngineCore* MainCore;
+	static GameEngineCore* MainCore_;
 
 private:
 	static void WindowCreate();
@@ -33,6 +33,8 @@ public:
 	template<typename UserGameType>
 	static void Start()
 	{
+		GameEngineDebug::LeakCheckOn();
+
 		WindowCreate();
 
 		UserGameType NewUserGame;
@@ -40,7 +42,7 @@ public:
 		NewUserGame.Initialize();
 		NewUserGame.ResourcesLoad();
 
-		MainCore = &NewUserGame;
+		MainCore_ = &NewUserGame;
 
 		Loop();
 

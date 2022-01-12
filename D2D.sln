@@ -20,6 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01BaseFile", "01BaseFile", "{E0C1A758-4F5E-448E-9B5E-D1B6A7099A35}"
 	ProjectSection(SolutionItems) = preProject
 		AClassDefault.zip = AClassDefault.zip
+		AClassDefaultManager.zip = AClassDefaultManager.zip
 		LibProjectBase.zip = LibProjectBase.zip
 	EndProjectSection
 EndProject

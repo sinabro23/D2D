@@ -4,19 +4,23 @@
 // 분류 : 
 // 용도 : 
 // 설명 : 
+class GameEngineIndexBuffer;
 class GameEngineVertexBuffer;
 class GameEngineVertexShader;
 class GameEngineRenderingPipeLine
 {
 private:	// member Var
-
 	GameEngineVertexBuffer* VertexBuffer_;
 	GameEngineVertexShader* VertexShader_;
 
-public:
-	void SetInputAssembler1(GameEngineVertexBuffer* _Ptr);
+	GameEngineIndexBuffer* IndexBuffer_;
 
-	void SetVertexShader(GameEngineVertexShader* _Ptr);
+public:
+	void SetInputAssembler1(const std::string& _Name);
+
+	void SetVertexShader(const std::string& _Name);
+
+	void SetInputAssembler2(const std::string& _Name);
 
 public:
 	void Rendering();
