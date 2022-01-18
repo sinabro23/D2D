@@ -85,13 +85,10 @@ void GameEngineRenderingPipeLine::Rendering()
 	{
 		const std::vector<int>& Index = IndexBuffer_->Indexs;
 
-		// 삼각형 꼭지점은 3개.
 		POINT ArrTri[3];
 
-		// 삼각형 개수, 점이 3개 모여야 삼각형 한개. 지금 인덱스 버퍼 6개이니깐 삼각형 개수 2개.
 		for (size_t TriCount = 0; TriCount < Index.size() / 3; TriCount++)
 		{
-			// 삼각형 하나마다 3개의 점.
 			for (size_t i = 0; i < 3; i++)
 			{
 				int CurIndex = Index[(TriCount * 3) + i];
@@ -99,6 +96,7 @@ void GameEngineRenderingPipeLine::Rendering()
 				ArrTri[i] = CopyVertex[CurIndex].GetWindowPoint();
 			}
 
+			// 이게 픽셀 쉐이더 단계라고 볼수 있다.
 			Polygon(GameEngineWindow::GetInst().GetWindowDC(), &ArrTri[0], 3);
 		}
 	}

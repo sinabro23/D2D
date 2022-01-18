@@ -1,8 +1,4 @@
 #pragma once
-#include <math.h>
-#include <random>
-#include <string>
-#include <Windows.h>
 
 class GameEngineMath
 {
@@ -23,28 +19,79 @@ public:
 	static const float4 DOWN;
 
 public:
-	static float4 RotateZfloat2Degree(float4 _OriginVector, float _Degree)
+	static float4 RotateYDegree(float4 _OriginVector, float _Degree)
 	{
-		return RotateZfloat2Radian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
+		return RotateYRadian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
 	}
 
-	static float4 RotateZfloat2Radian(float4 _OriginVector, float _Radian)
+	static float4 RotateYRadian(float4 _OriginVector, float _Radian)
 	{
 		float4 NextVector;
 
-		NextVector.x = _OriginVector.x * cosf(_Radian) - _OriginVector.y * sinf(_Radian);
-		NextVector.y = _OriginVector.x * sinf(_Radian) + _OriginVector.y * cosf(_Radian);
+		NextVector.z = _OriginVector.z * cosf(_Radian) + _OriginVector.x * sinf(_Radian);
+		NextVector.x = _OriginVector.z * sinf(_Radian) - _OriginVector.x * cosf(_Radian);
+		NextVector.y = _OriginVector.y;
+
+		//return float4( 1 * cosf(_Radian),  1 * sinf(_Radian));
+
+		//NextVector.x = _OriginVector.x * cosf(_Radian) - _OriginVector.y * sinf(_Radian);
+		//NextVector.y = _OriginVector.x * sinf(_Radian) + _OriginVector.y * cosf(_Radian);
+
 
 		return NextVector;
 	}
 
-	static float4 Dirfloat2Degree(float _Degree)
+	static float4 RotateXDegree(float4 _OriginVector, float _Degree)
 	{
-		return Dirfloat2Radian(_Degree * GameEngineMath::DegreeToRadian);
+		return RotateXRadian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
+	}
+
+	static float4 RotateXRadian(float4 _OriginVector, float _Radian)
+	{
+		float4 NextVector;
+
+		NextVector.y = _OriginVector.y * cosf(_Radian) + _OriginVector.z * sinf(_Radian);
+		NextVector.z = _OriginVector.y * sinf(_Radian) - _OriginVector.z * cosf(_Radian);
+		NextVector.x = _OriginVector.x;
+		//return float4( 1 * cosf(_Radian),  1 * sinf(_Radian));
+
+		//NextVector.x = _OriginVector.x * cosf(_Radian) - _OriginVector.y * sinf(_Radian);
+		//NextVector.y = _OriginVector.x * sinf(_Radian) + _OriginVector.y * cosf(_Radian);
+
+
+		return NextVector;
+	}
+
+
+	static float4 RotateZDegree(float4 _OriginVector, float _Degree)
+	{
+		return RotateZRadian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
+	}
+
+	static float4 RotateZRadian(float4 _OriginVector, float _Radian)
+	{
+		float4 NextVector;
+
+		NextVector.x = _OriginVector.x * cosf(_Radian) + _OriginVector.y * sinf(_Radian);
+		NextVector.y = _OriginVector.x * sinf(_Radian) - _OriginVector.y * cosf(_Radian);
+		NextVector.z = _OriginVector.z;
+
+		//return float4( 1 * cosf(_Radian),  1 * sinf(_Radian));
+
+		//NextVector.x = _OriginVector.x * cosf(_Radian) - _OriginVector.y * sinf(_Radian);
+		//NextVector.y = _OriginVector.x * sinf(_Radian) + _OriginVector.y * cosf(_Radian);
+
+
+		return NextVector;
+	}
+
+	static float4 DirZDegree(float _Degree)
+	{
+		return DirZRadian(_Degree * GameEngineMath::DegreeToRadian);
 	}
 
 	// 0도 {1, 0} 일때의 벡터를 회전시키는 공식인겁니다.
-	static float4 Dirfloat2Radian(float _Radian)
+	static float4 DirZRadian(float _Radian)
 	{
 		return float4(cosf(_Radian), sinf(_Radian));
 	}
@@ -69,6 +116,11 @@ public:
 			float b;
 			float a;
 		};
+
+		DirectX::XMFLOAT3 DxXmfloat3;
+		DirectX::XMFLOAT4 DxXmfloat4;
+
+		DirectX::XMVECTOR DirectVector;
 
 		// 실수는 기본적으로 00000000 00000000 00000000 00000000
 	};
@@ -145,7 +197,7 @@ public:
 		this->x -= _other.x;
 		this->y -= _other.y;
 		this->z -= _other.z;
-		this->w -= _other.w;
+		// this->w -= _other.w;
 		return *this;
 	}
 
@@ -154,7 +206,7 @@ public:
 		this->x *= _other.x;
 		this->y *= _other.y;
 		this->z *= _other.z;
-		this->w *= _other.w;
+		// this->w *= _other.w;
 		return *this;
 	}
 
@@ -163,7 +215,7 @@ public:
 		this->x *= _Value;
 		this->y *= _Value;
 		this->z *= _Value;
-		this->w *= _Value;
+		//this->w *= _Value;
 		return *this;
 	}
 
@@ -173,7 +225,7 @@ public:
 		this->x /= _other.x;
 		this->y /= _other.y;
 		this->z /= _other.z;
-		this->w /= _other.w;
+		// this->w /= _other.w;
 		return *this;
 	}
 
@@ -245,9 +297,21 @@ public:
 		return { ix(), iy() };
 	}
 
-	void RotateZfloat2Degree(float _Deg)
+	void RotateXDegree(float _Deg)
 	{
-		*this = RotateZfloat2Degree(*this, _Deg);
+		*this = RotateXDegree(*this, _Deg);
+		return;
+	}
+
+	void RotateYDegree(float _Deg)
+	{
+		*this = RotateYDegree(*this, _Deg);
+		return;
+	}
+
+	void RotateZDegree(float _Deg)
+	{
+		*this = RotateZDegree(*this, _Deg);
 		return;
 	}
 
@@ -377,6 +441,132 @@ public:
 		: pos_(_Pos), size_(_Size)
 	{
 
+	}
+};
+
+class float4x4
+{
+	union
+	{
+		float Arr2D[4][4];
+		struct
+		{
+			float4 vx;
+			float4 vy;
+			float4 vz;
+			float4 vw;
+		};
+
+		float Arr1D[4 * 4];
+		// 실수는 기본적으로 00000000 00000000 00000000 00000000
+
+		DirectX::XMFLOAT4X4 DxXmfloat4x4;
+		DirectX::XMMATRIX DirectMatrix;
+	};
+
+public:
+	float4x4()
+		: DirectMatrix(DirectX::XMMatrixIdentity())
+	{
+
+	}
+
+	float4x4(const float4x4& _Other)
+		: DirectMatrix(_Other.DirectMatrix)
+	{
+
+	}
+
+	float4x4(const DirectX::XMMATRIX& _Other)
+		: DirectMatrix(_Other)
+	{
+
+	}
+
+	~float4x4()
+	{
+
+	}
+
+	// 크기 변환 행렬
+	void Scaling(const float4& _Value)
+	{
+		DirectMatrix = DirectX::XMMatrixScalingFromVector(_Value.DirectVector);
+	}
+
+	// 이동 행렬
+	void Translation(const float4& _Value)
+	{
+		DirectMatrix = DirectX::XMMatrixTranslationFromVector(_Value.DirectVector);
+	}
+
+	// 회전 행렬
+	void RotationDeg(const float4& _Value)
+	{
+		RotationRad(_Value * GameEngineMath::DegreeToRadian);
+	}
+
+	void RotationXDeg(const float& _Value)
+	{
+		RotationXRad(_Value * GameEngineMath::DegreeToRadian);
+	}
+
+	void RotationYDeg(const float& _Value)
+	{
+		RotationYRad(_Value * GameEngineMath::DegreeToRadian);
+	}
+
+	void RotationZDeg(const float& _Value)
+	{
+		RotationZRad(_Value * GameEngineMath::DegreeToRadian);
+	}
+
+	void RotationRad(const float4& _Value)
+	{
+		DirectMatrix = DirectX::XMMatrixRotationRollPitchYawFromVector(_Value.DirectVector);
+	}
+
+	void RotationXRad(const float& _Value)
+	{
+		DirectMatrix = DirectX::XMMatrixRotationX(_Value);
+	}
+
+	void RotationYRad(const float& _Value)
+	{
+		DirectMatrix = DirectX::XMMatrixRotationY(_Value);
+	}
+
+	void RotationZRad(const float& _Value)
+	{
+		DirectMatrix = DirectX::XMMatrixRotationZ(_Value);
+	}
+
+	void Identity()
+	{
+		//for (size_t y = 0; y < 4; y++)
+		//{ 
+		//	for (size_t x = 0; x < 4; x++)
+		//	{
+		//		Arr2D[y][x] = 0.0f;
+		//	}
+		//}
+
+		//// 1.0f 0.0f 0.0f 0.0f
+		//// 0.0f 1.0f 0.0f 0.0f
+		//// 0.0f 0.0f 1.0f 0.0f
+		//// 0.0f 0.0f 0.0f 1.0f
+
+		//for (size_t i = 0; i < 4; i++)
+		//{
+		//	Arr2D[i][i] = 1.0f;
+		//}
+
+		DirectMatrix = DirectX::XMMatrixIdentity();
+	}
+
+	float4x4 operator*(const float4x4& _Other)
+	{
+		return DirectX::XMMatrixMultiply(DirectMatrix, _Other.DirectMatrix);
 	}
 };
 

@@ -31,6 +31,7 @@ void UserGame::Initialize()
 }
 
 float RotAngle = 0.0f;
+float4 BoxPos = { 0.0f, 0.0f, 0.0f };
 
 void UserGame::ResourcesLoad()
 {
@@ -50,39 +51,109 @@ void UserGame::ResourcesLoad()
 
 
 	{
-		std::vector<float4> RectVertex = std::vector<float4>(4);
+		// 각자 물체가 각자의 크기와 회전값을 가진 세상
+		// 로컬스페이스
 
-		RectVertex[0] = float4({ -0.5f, 0.5f, 0.5f });
-		RectVertex[1] = float4({ 0.5f, 0.5f, 0.5f });
-		RectVertex[2] = float4({ 0.5f, -0.5f, 0.5f });
-		RectVertex[3] = float4({ -0.5f, -0.5f, 0.5f });
+		// 로컬세상에 있는 물체를 우리가 원하는 대로 변형하고
+		// 위치시키고 인식합니다.
+		// 월드스페이스
 
-		//RectVertex[4] = RectVertex[0].Rotatefloat2Degree();
-		//RectVertex[5] = RectVertex[1]
-		//RectVertex[6] = RectVertex[2]
-		//RectVertex[7] = RectVertex[3]
+		std::vector<float4> RectVertex = std::vector<float4>(4 * 6);
+
+		{
+			RectVertex[0] = float4({ -0.5f, 0.5f, 0.5f });
+			RectVertex[1] = float4({ 0.5f, 0.5f, 0.5f });
+			RectVertex[2] = float4({ 0.5f, -0.5f, 0.5f });
+			RectVertex[3] = float4({ -0.5f, -0.5f, 0.5f });
+
+			RectVertex[4] = float4::RotateXDegree(RectVertex[0], 180.0f);
+			RectVertex[5] = float4::RotateXDegree(RectVertex[1], 180.0f);
+			RectVertex[6] = float4::RotateXDegree(RectVertex[2], 180.0f);
+			RectVertex[7] = float4::RotateXDegree(RectVertex[3], 180.0f);
+		}
+
+		{
+			RectVertex[8] = float4::RotateYDegree(RectVertex[0], 90.0f);
+			RectVertex[9] = float4::RotateYDegree(RectVertex[1], 90.0f);
+			RectVertex[10] = float4::RotateYDegree(RectVertex[2], 90.0f);
+			RectVertex[11] = float4::RotateYDegree(RectVertex[3], 90.0f);
+
+			RectVertex[12] = float4::RotateYDegree(RectVertex[0], -90.0f);
+			RectVertex[13] = float4::RotateYDegree(RectVertex[1], -90.0f);
+			RectVertex[14] = float4::RotateYDegree(RectVertex[2], -90.0f);
+			RectVertex[15] = float4::RotateYDegree(RectVertex[3], -90.0f);
+		}
+
+		{
+			RectVertex[16] = float4::RotateXDegree(RectVertex[0], 90.0f);
+			RectVertex[17] = float4::RotateXDegree(RectVertex[1], 90.0f);
+			RectVertex[18] = float4::RotateXDegree(RectVertex[2], 90.0f);
+			RectVertex[19] = float4::RotateXDegree(RectVertex[3], 90.0f);
+
+			RectVertex[20] = float4::RotateXDegree(RectVertex[0], -90.0f);
+			RectVertex[21] = float4::RotateXDegree(RectVertex[1], -90.0f);
+			RectVertex[22] = float4::RotateXDegree(RectVertex[2], -90.0f);
+			RectVertex[23] = float4::RotateXDegree(RectVertex[3], -90.0f);
+		}
 
 		GameEngineVertexBufferManager::GetInst().Create("Rect", RectVertex);
 	}
 
 	{
-		std::vector<int> RectIndex = { 0,1,2, 0,2,3 };
+		std::vector<int> RectIndex;
+
+		for (int i = 0; i < 6; i++)
+		{
+			RectIndex.push_back(i * 4 + 0);
+			RectIndex.push_back(i * 4 + 1);
+			RectIndex.push_back(i * 4 + 2);
+
+			RectIndex.push_back(i * 4 + 0);
+			RectIndex.push_back(i * 4 + 2);
+			RectIndex.push_back(i * 4 + 3);
+		}
+
+
 
 		GameEngineIndexBufferManager::GetInst().Create("Rect", RectIndex);
 	}
 
 	{
-		// 이 스택에서 곧바로 넣어주고 싶은건
-		// []
-
 
 		GameEngineVertexShaderManager::GetInst().Create("TestShader", [](const float4& _Value)
 			{
-				float4 MovePos = { 200.0f, 200.0f };
+				float4x4 Mat;
+
 				float4 Pos = _Value;
-				Pos *= 100.0f;
-				Pos.RotateZfloat2Degree(RotAngle);
-				Pos += MovePos;
+				float4 WorldScale = { 100.0f, 100.0f, 100.0f };
+				float4 WorldMove = { 100.0f, 0.0f };
+				float4 WorldRot = { 0.0f, 0.0f, RotAngle };
+				Pos *= WorldScale;
+				Pos.RotateXDegree(WorldRot.x);
+				Pos.RotateYDegree(WorldRot.y);
+				Pos.RotateZDegree(WorldRot.z);
+				Pos += BoxPos;
+
+				// 거의 대부분을 버텍스 쉐이더에서 합니다.
+
+
+				// 한번더 뭘로 변환시키고
+
+				// 월드 세상에 위치시키기 위한 변형
+				//float4 SpaceScale = { 1.0f, -1.0f, 1.0f };
+				//float4 SpaceRot = { 0.0f, 0.0f, 0.0f };
+				//float4 SpaceMove = { 1280.0f * 0.5f, 720*0.5f, 0.0f};
+
+				//Pos *= SpaceScale;
+				//Pos.RotateXDegree(SpaceRot.x);
+				//Pos.RotateYDegree(SpaceRot.y);
+				//Pos.RotateZDegree(SpaceRot.z);
+				//Pos += SpaceMove;
+
+
+
+
+
 
 				return Pos;
 			}
@@ -93,6 +164,7 @@ void UserGame::ResourcesLoad()
 
 void UserGame::Release()
 {
+
 	// Resources
 	GameEngineIndexBufferManager::Destroy();
 	GameEngineVertexShaderManager::Destroy();
@@ -115,13 +187,8 @@ void UserGame::GameLoop()
 	Pipe.SetInputAssembler2("Rect");
 
 	RotAngle += 360.0f * GameEngineTime::GetInst().GetDeltaTime();
+	BoxPos.y += 10.0f * GameEngineTime::GetInst().GetDeltaTime();
 
 	Pipe.Rendering();
 
-	// Polygon(GameEngineWindow::GetInst().GetWindowDC(), PolyGon, 4);
-
-	// 지역 static
-	//static float X = 0.0f;
-	//X += 10.0f * GameEngineTime::GetInst().GetDeltaTime();
-	//Rectangle(GameEngineWindow::GetInst().GetWindowDC(), 0 + X, 0, 100 + X, 100);
 }
