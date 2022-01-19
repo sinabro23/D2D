@@ -72,6 +72,7 @@ public:
 	{
 		return RotateYRadian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
 	}
+
 	static float4 RotateYRadian(float4 _OriginVector, float _Radian);
 
 	static float4 RotateXDegree(float4 _OriginVector, float _Degree)
