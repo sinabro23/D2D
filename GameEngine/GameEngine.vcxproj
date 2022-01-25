@@ -31,10 +31,13 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineReasterizer.h" />
+    <ClInclude Include="GameEngineReasterizerManager.h" />
     <ClInclude Include="GameEngineRenderingPipeLine.h">
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineResourcesManager.h" />
     <ClInclude Include="GameEngineTexture.h">
       <SubType>
       </SubType>
@@ -78,6 +81,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineReasterizer.cpp" />
+    <ClCompile Include="GameEngineReasterizerManager.cpp" />
     <ClCompile Include="GameEngineRenderingPipeLine.cpp">
       <SubType>
       </SubType>
