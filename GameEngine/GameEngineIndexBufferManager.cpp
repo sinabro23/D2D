@@ -36,13 +36,12 @@ GameEngineIndexBuffer* GameEngineIndexBufferManager::Create(const std::string& _
 
 	if (nullptr != FindRes)
 	{
-		GameEngineDebug::MsgBoxError(_Name + " Is Overlap Load");
+		GameEngineDebug::MsgBoxError(_Name + " Is Overlap Create");
 	}
 
 
 	GameEngineIndexBuffer* NewRes = new GameEngineIndexBuffer();
 	NewRes->SetName(_Name);
-
 	NewRes->Indexs = _Index;
 
 	// 그리고 뭘할거냐?

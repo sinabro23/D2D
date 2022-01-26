@@ -23,6 +23,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineDirectXDevice.h" />
     <ClInclude Include="GameEngineIndexBuffer.h">
       <SubType>
       </SubType>
@@ -37,6 +38,8 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineRenderTarget.h" />
+    <ClInclude Include="GameEngineRenderTargetManager.h" />
     <ClInclude Include="GameEngineResourcesManager.h" />
     <ClInclude Include="GameEngineTexture.h">
       <SubType>
@@ -73,6 +76,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineDirectXDevice.cpp" />
     <ClCompile Include="GameEngineIndexBuffer.cpp">
       <SubType>
       </SubType>
@@ -87,6 +91,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineRenderTarget.cpp" />
+    <ClCompile Include="GameEngineRenderTargetManager.cpp" />
     <ClCompile Include="GameEngineTexture.cpp">
       <SubType>
       </SubType>
