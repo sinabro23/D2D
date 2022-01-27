@@ -32,12 +32,14 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEngineReasterizer.h" />
-    <ClInclude Include="GameEngineReasterizerManager.h" />
+    <ClInclude Include="GameEngineMesh.h" />
+    <ClInclude Include="GameEngineRasterizer.h" />
+    <ClInclude Include="GameEngineRasterizerManager.h" />
     <ClInclude Include="GameEngineRenderingPipeLine.h">
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineRenderingPipeLineManager.h" />
     <ClInclude Include="GameEngineRenderTarget.h" />
     <ClInclude Include="GameEngineRenderTargetManager.h" />
     <ClInclude Include="GameEngineResourcesManager.h" />
@@ -85,12 +87,14 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GameEngineReasterizer.cpp" />
-    <ClCompile Include="GameEngineReasterizerManager.cpp" />
+    <ClCompile Include="GameEngineMesh.cpp" />
+    <ClCompile Include="GameEngineRasterizer.cpp" />
+    <ClCompile Include="GameEngineRasterizerManager.cpp" />
     <ClCompile Include="GameEngineRenderingPipeLine.cpp">
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineRenderingPipeLineManager.cpp" />
     <ClCompile Include="GameEngineRenderTarget.cpp" />
     <ClCompile Include="GameEngineRenderTargetManager.cpp" />
     <ClCompile Include="GameEngineTexture.cpp">

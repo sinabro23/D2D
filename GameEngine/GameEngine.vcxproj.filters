@@ -65,10 +65,10 @@
     <ClInclude Include="GameEngineIndexBufferManager.h">
       <Filter>Resources\99Manager</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineReasterizer.h">
+    <ClInclude Include="GameEngineRasterizer.h">
       <Filter>Resources\03Setting</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineReasterizerManager.h">
+    <ClInclude Include="GameEngineRasterizerManager.h">
       <Filter>Resources\99Manager</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineResourcesManager.h">
@@ -81,6 +81,12 @@
       <Filter>Resources\02Image</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineRenderTargetManager.h">
+      <Filter>Resources\99Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineMesh.h">
+      <Filter>Resources\00Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineRenderingPipeLineManager.h">
       <Filter>Resources\99Manager</Filter>
     </ClInclude>
   </ItemGroup>
@@ -117,10 +123,10 @@
     <ClCompile Include="GameEngineIndexBufferManager.cpp">
       <Filter>Resources\99Manager</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineReasterizer.cpp">
+    <ClCompile Include="GameEngineRasterizer.cpp">
       <Filter>Resources\03Setting</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineReasterizerManager.cpp">
+    <ClCompile Include="GameEngineRasterizerManager.cpp">
       <Filter>Resources\99Manager</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineDirectXDevice.cpp">
@@ -130,6 +136,12 @@
       <Filter>Resources\02Image</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineRenderTargetManager.cpp">
+      <Filter>Resources\99Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineMesh.cpp">
+      <Filter>Resources\00Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineRenderingPipeLineManager.cpp">
       <Filter>Resources\99Manager</Filter>
     </ClCompile>
   </ItemGroup>

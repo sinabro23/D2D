@@ -13,7 +13,7 @@
     <ClInclude Include="PreCompile.h">
       <Filter>PreCom</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineDirectroy.h">
+    <ClInclude Include="GameEngineDirectory.h">
       <Filter>IO</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineFile.h">
@@ -57,7 +57,7 @@
     <ClCompile Include="PreCompile.cpp">
       <Filter>PreCom</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineDirectroy.cpp">
+    <ClCompile Include="GameEngineDirectory.cpp">
       <Filter>IO</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineFile.cpp">

@@ -11,7 +11,6 @@ private:	// member Var
 	ID3D11Texture2D* Texture2D_;
 	ID3D11RenderTargetView* RenderTargetView_;
 
-
 public:
 	void Create(ID3D11Texture2D* _Texture2D);
 
@@ -30,5 +29,6 @@ private:		//delete operator
 public:
 	ID3D11RenderTargetView* CreateRenderTargetView();
 };
+
 
 
