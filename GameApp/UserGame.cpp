@@ -39,7 +39,7 @@ void UserGame::Release()
 
 void UserGame::GameLoop()
 {
-	GameEngineDirectXDevice::RenderStart();
+	GameEngineDevice::RenderStart();
 
 	GameEngineRenderingPipeLine* Pipe = GameEngineRenderingPipeLineManager::GetInst().Find("BoxRendering");
 	Pipe->Rendering();
@@ -60,6 +60,6 @@ void UserGame::GameLoop()
 	//Pipe.Rendering();
 
 
-	GameEngineDirectXDevice::RenderEnd();
+	GameEngineDevice::RenderEnd();
 }
 

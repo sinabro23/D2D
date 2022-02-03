@@ -40,7 +40,7 @@ public:
 			GameEngineDebug::MsgBoxError(_Name + " Is Overlap Create");
 		}
 
-
+		// 버텍스 버퍼에 24개의 점이 들어감.
 		GameEngineVertexBuffer* NewRes = new GameEngineVertexBuffer();
 		NewRes->SetName(_Name);
 		NewRes->Create<VertexType>(_Vertex, _Usage);

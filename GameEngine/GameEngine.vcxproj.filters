@@ -31,6 +31,9 @@
     <Filter Include="RenderingPipeLine\Device">
       <UniqueIdentifier>{af36a4a2-7920-4c43-90eb-8892a044391a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ShaderCode">
+      <UniqueIdentifier>{fc3e4d14-db96-4a1a-be70-48d19249d633}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -74,7 +77,7 @@
     <ClInclude Include="GameEngineResourcesManager.h">
       <Filter>Resources\99Manager</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineDirectXDevice.h">
+    <ClInclude Include="GameEngineDevice.h">
       <Filter>RenderingPipeLine\Device</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineRenderTarget.h">
@@ -129,7 +132,7 @@
     <ClCompile Include="GameEngineRasterizerManager.cpp">
       <Filter>Resources\99Manager</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineDirectXDevice.cpp">
+    <ClCompile Include="GameEngineDevice.cpp">
       <Filter>RenderingPipeLine\Device</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineRenderTarget.cpp">
@@ -144,5 +147,10 @@
     <ClCompile Include="GameEngineRenderingPipeLineManager.cpp">
       <Filter>Resources\99Manager</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>ShaderCode</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

@@ -28,6 +28,7 @@ public:		//member Func
 	static void AssertFalse();
 	static void OutPutDebugString(const std::string& _Text);
 
+	static void MsgBox(const std::string& _Ptr);
 
 };
 

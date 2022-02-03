@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <GameEngineBase/GameEngineObjectNameBase.h>
-#include <GameEngine/GameEngineDirectXDevice.h>
+#include <GameEngine/GameEngineDevice.h>
 
 // 분류 : 
 // 용도 : 
@@ -9,9 +9,14 @@
 class GameEngineIndexBuffer : public GameEngineObjectNameBase
 {
 public:	// member Var
+	// 성공하면 돌려주는 포인터
 	ID3D11Buffer* Buffer_;
+	// 버퍼의 데이터. 크기 같은것
 	D3D11_BUFFER_DESC BufferData_;
+
+	// 버퍼 초기값 세팅
 	D3D11_SUBRESOURCE_DATA ResData_;
+
 	DXGI_FORMAT Format_;
 	UINT Offset_;
 
