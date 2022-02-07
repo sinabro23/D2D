@@ -79,9 +79,9 @@ void GameEngineDevice::Initialize()
 			nullptr, // eLVArr
 			0,
 			D3D11_SDK_VERSION,
-			&Device_, // 디바이스 반환
+			&Device_,
 			&eLV,
-			&Context_) // 컨텍스트 반환
+			&Context_)
 		)
 	{
 		GameEngineDebug::MsgBoxError("D3D11 Create Device ERROR");
@@ -92,7 +92,7 @@ void GameEngineDevice::Initialize()
 		GameEngineDebug::MsgBoxError("D3D11 Not FEATURE LEVEL 11 ERROR");
 	}
 
-	CreateSwapChain(); // 디바이스와 컨텍스트 만들었으니 스왑체인 만들기
+	CreateSwapChain();
 }
 
 void GameEngineDevice::CreateSwapChain()
@@ -105,10 +105,10 @@ void GameEngineDevice::CreateSwapChain()
 
 	float4 ScreenSize = GameEngineWindow::GetInst().GetSize();
 
-	DXGI_SWAP_CHAIN_DESC ScInfo = { 0, }; // DXGI_SWAP_CHAIN_DESC 스왑체인의 정보를 저장하기 위한 구조체
+	DXGI_SWAP_CHAIN_DESC ScInfo = { 0, };
 
 	// 그래픽카드에 버퍼는 들어있어야 겠죠.
-	ScInfo.BufferDesc.Width = ScreenSize.uix(); 
+	ScInfo.BufferDesc.Width = ScreenSize.uix();
 	ScInfo.BufferDesc.Height = ScreenSize.uiy();
 
 	// 모니터에 간섭해서 
@@ -122,17 +122,16 @@ void GameEngineDevice::CreateSwapChain()
 	ScInfo.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
 
 	// 화면에 띄우기 위해서는 그런 용도로 만든다는걸 알려줘야 하는데
-	// 만들려는 스왑체인의 버퍼의 용도. 렌더타겟과 쉐이더를 넣기위함
 	ScInfo.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT | DXGI_USAGE_SHADER_INPUT;
 
-	ScInfo.SampleDesc.Quality = 0; //샘플링?
+	ScInfo.SampleDesc.Quality = 0;
 	ScInfo.SampleDesc.Count = 1;
 
 	ScInfo.OutputWindow = GameEngineWindow::GetInst().GetWindowHWND();
 
-	ScInfo.BufferCount = 2; // 더블버퍼링을 위한 2개의 버퍼
+	ScInfo.BufferCount = 2;
 
-	ScInfo.SwapEffect = DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_DISCARD; // 스왑하는 방법
+	ScInfo.SwapEffect = DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_FLIP_DISCARD;
 
 	// 전체화면 모드 가능
 	ScInfo.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
@@ -178,15 +177,12 @@ void GameEngineDevice::CreateSwapChain()
 	pD->Release();
 
 	ID3D11Texture2D* BackBufferTexture = nullptr;
-	// 스왑체인에 있는 백버퍼(원본은 텍스쳐형식임)를 BackBufferTexture로 가져옴.
 	if (S_OK != SwapChain_->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(&BackBufferTexture)))
 	{
 		GameEngineDebug::MsgBoxError("SwapChain Texture Error");
 	}
 
-	// BackBufferTexture는 스왑체인의 백버퍼를 가리키고 있음.
-	GameEngineTextureManager::GetInst().Create("BackBuffer", BackBufferTexture); 	// 이미 백버퍼 만들어졌지만 관리하기위해 매니저에 넣어주는거구나
-	
+	GameEngineTextureManager::GetInst().Create("BackBuffer", BackBufferTexture);
 	BackBufferTarget_ = GameEngineRenderTargetManager::GetInst().Create("BackBuffer", "BackBuffer", float4::BLUE);
 }
 
