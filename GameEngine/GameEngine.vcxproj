@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameEngineConstantBuffer.h" />
+    <ClInclude Include="GameEngineConstantBufferManager.h" />
     <ClInclude Include="GameEngineCore.h">
       <SubType>
       </SubType>
@@ -42,6 +44,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="GameEngineRenderingPipeLineManager.h" />
+    <ClInclude Include="GameEngineRenderingSettingData.h" />
     <ClInclude Include="GameEngineRenderTarget.h" />
     <ClInclude Include="GameEngineRenderTargetManager.h" />
     <ClInclude Include="GameEngineResourcesManager.h" />
@@ -77,6 +80,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameEngineConstantBuffer.cpp" />
+    <ClCompile Include="GameEngineConstantBufferManager.cpp" />
     <ClCompile Include="GameEngineCore.cpp">
       <SubType>
       </SubType>
@@ -100,6 +105,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="GameEngineRenderingPipeLineManager.cpp" />
+    <ClCompile Include="GameEngineRenderingSettingData.cpp" />
     <ClCompile Include="GameEngineRenderTarget.cpp" />
     <ClCompile Include="GameEngineRenderTargetManager.cpp" />
     <ClCompile Include="GameEngineShader.cpp" />
@@ -229,6 +235,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -250,6 +257,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -271,6 +279,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -292,6 +301,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

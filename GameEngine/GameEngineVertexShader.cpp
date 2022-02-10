@@ -111,7 +111,7 @@ bool GameEngineVertexShader::FileCompile(const std::string& _Path) {
 	}
 
 	LayOutCheck();
-	ResCheck();
+	ResCheck(); // cbu같은거 체크
 
 	return true;
 }
