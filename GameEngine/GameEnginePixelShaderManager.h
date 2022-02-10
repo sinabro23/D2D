@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 
 // 설명 : 
 class GameEnginePixelShader;
@@ -45,9 +44,16 @@ public:
 		UINT _VersionLow = 0
 	);
 	// 파일에서 로드
-	GameEnginePixelShader* Load(const std::string& _Path);
+	GameEnginePixelShader* Load(const std::string& _Path
+		, const std::string& _EntryPoint
+		, UINT _VersionHigh = 5
+		, UINT _VersionLow = 0
+	);
 	// 이름 직접 지정
-	GameEnginePixelShader* Load(const std::string& _Name, const std::string& _Path);
+	GameEnginePixelShader* Load(const std::string& _Name, const std::string& _Path, const std::string& _EntryPoint
+		, UINT _VersionHigh = 5
+		, UINT _VersionLow = 0
+	);
 	// 목록에서 찾는다.
 	GameEnginePixelShader* Find(const std::string& _Name);
 
@@ -63,7 +69,4 @@ private:		//delete operator
 	GameEnginePixelShaderManager& operator=(const GameEnginePixelShaderManager& _other) = delete; // default Copy operator 디폴트 대입 연산자
 	GameEnginePixelShaderManager& operator=(const GameEnginePixelShaderManager&& _other) = delete; // default RValue Copy operator 디폴트 RValue 대입연산자
 };
-
-
-
 

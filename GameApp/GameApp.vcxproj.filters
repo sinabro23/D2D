@@ -11,6 +11,9 @@
     <ClCompile Include="UserGame_Resources.cpp">
       <Filter>UserCore</Filter>
     </ClCompile>
+    <ClCompile Include="UserGame_Resources_Shader.cpp">
+      <Filter>UserCore\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="PreCom">
@@ -22,6 +25,9 @@
     <Filter Include="CustomVertex">
       <UniqueIdentifier>{4ecb6834-17ea-4f71-94bd-81749d051f43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UserCore\Resources">
+      <UniqueIdentifier>{025d5c07-acf0-43ce-ab33-ed6b1fa024da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -32,6 +38,9 @@
     </ClInclude>
     <ClInclude Include="CustomVertex.h">
       <Filter>CustomVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="UserGame_Resources_Shader.h">
+      <Filter>UserCore\Resources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

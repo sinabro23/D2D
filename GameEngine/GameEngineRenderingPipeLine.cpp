@@ -143,7 +143,6 @@ void GameEngineRenderingPipeLine::VertexShader()
 void GameEngineRenderingPipeLine::Rasterizer()
 {
 	Rasterizer_->Setting();
-
 	Rasterizer_->SettingViewPort();
 }
 
@@ -156,10 +155,10 @@ void GameEngineRenderingPipeLine::PixelShader()
 void GameEngineRenderingPipeLine::RenderingPipeLineSetting()
 {
 	// input어셈블러 단계
-// 버텍스 버퍼 세팅
 	InputAssembler1();
 
 	InputAssembler2();
+
 	VertexShader();
 
 	Rasterizer();
