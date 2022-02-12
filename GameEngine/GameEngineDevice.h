@@ -43,7 +43,6 @@ private:
 
 	static IDXGISwapChain* SwapChain_;
 
-	// 스왑체인에서 나온 리소스인 텍스쳐를 렌더타겟으로 사용하기위한 뷰
 	static GameEngineRenderTarget* BackBufferTarget_;
 
 

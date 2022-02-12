@@ -26,7 +26,7 @@ GameEngineCore::GameEngineCore(GameEngineCore&& _other) noexcept  // default RVa
 /// /////////////////////////// member
 /// </summary>
 
-void GameEngineCore::EngineInitialize()
+void GameEngineCore::EngineInitialize() 
 {
 	GameEngineSoundManager::GetInst().Initialize();
 }
@@ -44,7 +44,7 @@ void GameEngineCore::EngineDestroy()
 /// /////////////////////////// static
 /// </summary>
 
-void GameEngineCore::MainLoop()
+void GameEngineCore::MainLoop() 
 {
 	GameEngineTime::GetInst().TimeCheck();
 	GameEngineSoundManager::GetInst().SoundUpdate();
@@ -60,7 +60,7 @@ void GameEngineCore::WindowCreate(GameEngineCore& _RuntimeCore)
 	GameEngineDevice::GetInst().Initialize();
 }
 
-void GameEngineCore::Loop()
+void GameEngineCore::Loop() 
 {
 	GameEngineWindow::GetInst().Loop(&GameEngineCore::MainLoop);
 }

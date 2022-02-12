@@ -35,9 +35,9 @@ void UserGame::ResourcesLoad()
 		{
 			// ¾Õ¸é
 			RectVertex[0] = { float4({ -0.5f, 0.5f, 0.5f }) };
-			RectVertex[1] = { float4({ 0.5f, 0.5f, 0.5f }) };
-			RectVertex[2] = { float4({ 0.5f, -0.5f, 0.5f }) };
-			RectVertex[3] = { float4({ -0.5f, -0.5f, 0.5f }) };
+			RectVertex[1] = {float4({ 0.5f, 0.5f, 0.5f }) };
+			RectVertex[2] = {float4({ 0.5f, -0.5f, 0.5f }) };
+			RectVertex[3] = {float4({ -0.5f, -0.5f, 0.5f }) };
 
 			RectVertex[4] = { float4::RotateXDegree(RectVertex[0].Postion, 180.0f) };
 			RectVertex[5] = { float4::RotateXDegree(RectVertex[1].Postion, 180.0f) };
@@ -46,26 +46,26 @@ void UserGame::ResourcesLoad()
 		}
 
 		{
-			RectVertex[8] = { float4::RotateYDegree(RectVertex[0].Postion, 90.0f) };
-			RectVertex[9] = { float4::RotateYDegree(RectVertex[1].Postion, 90.0f) };
-			RectVertex[10] = { float4::RotateYDegree(RectVertex[2].Postion, 90.0f) };
+			RectVertex[8] =  {float4::RotateYDegree(RectVertex[0].Postion, 90.0f)};
+			RectVertex[9] =  {float4::RotateYDegree(RectVertex[1].Postion, 90.0f)};
+			RectVertex[10] = { float4::RotateYDegree(RectVertex[2].Postion, 90.0f)};
 			RectVertex[11] = { float4::RotateYDegree(RectVertex[3].Postion, 90.0f) };
 
-			RectVertex[12] = { float4::RotateYDegree(RectVertex[0].Postion, -90.0f) };
-			RectVertex[13] = { float4::RotateYDegree(RectVertex[1].Postion, -90.0f) };
-			RectVertex[14] = { float4::RotateYDegree(RectVertex[2].Postion, -90.0f) };
-			RectVertex[15] = { float4::RotateYDegree(RectVertex[3].Postion, -90.0f) };
+			RectVertex[12] = {float4::RotateYDegree(RectVertex[0].Postion, -90.0f)};
+			RectVertex[13] = {float4::RotateYDegree(RectVertex[1].Postion, -90.0f)};
+			RectVertex[14] = {float4::RotateYDegree(RectVertex[2].Postion, -90.0f)};
+			RectVertex[15] = {float4::RotateYDegree(RectVertex[3].Postion, -90.0f)};
 		}
 
 		{
-			RectVertex[16] = { float4::RotateXDegree(RectVertex[0].Postion, 90.0f) };
-			RectVertex[17] = { float4::RotateXDegree(RectVertex[1].Postion, 90.0f) };
-			RectVertex[18] = { float4::RotateXDegree(RectVertex[2].Postion, 90.0f) };
-			RectVertex[19] = { float4::RotateXDegree(RectVertex[3].Postion, 90.0f) };
+			RectVertex[16] = {float4::RotateXDegree(RectVertex[0].Postion, 90.0f)};
+			RectVertex[17] = {float4::RotateXDegree(RectVertex[1].Postion, 90.0f)};
+			RectVertex[18] = {float4::RotateXDegree(RectVertex[2].Postion, 90.0f)};
+			RectVertex[19] = {float4::RotateXDegree(RectVertex[3].Postion, 90.0f)};
 
-			RectVertex[20] = { float4::RotateXDegree(RectVertex[0].Postion, -90.0f) };
-			RectVertex[21] = { float4::RotateXDegree(RectVertex[1].Postion, -90.0f) };
-			RectVertex[22] = { float4::RotateXDegree(RectVertex[2].Postion, -90.0f) };
+			RectVertex[20] = {float4::RotateXDegree(RectVertex[0].Postion, -90.0f)};
+			RectVertex[21] = {float4::RotateXDegree(RectVertex[1].Postion, -90.0f)};
+			RectVertex[22] = {float4::RotateXDegree(RectVertex[2].Postion, -90.0f)};
 			RectVertex[23] = { float4::RotateXDegree(RectVertex[3].Postion, -90.0f) };
 		}
 

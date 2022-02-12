@@ -41,7 +41,7 @@ LRESULT CALLBACK WndProc(HWND _hWnd, UINT _message, WPARAM _wParam, LPARAM _lPar
     return 0;
 }
 
-GameEngineWindow::GameEngineWindow()
+GameEngineWindow::GameEngineWindow() 
     : className_("")
     , windowTitle_("")
     , windowhandle_(nullptr)
@@ -50,7 +50,7 @@ GameEngineWindow::GameEngineWindow()
 {
 }
 
-GameEngineWindow::~GameEngineWindow()
+GameEngineWindow::~GameEngineWindow() 
 {
     if (nullptr != windowhandle_)
     {
@@ -112,6 +112,8 @@ void GameEngineWindow::CreateMainWindow(const std::string& _titlename, const flo
         return;
     }
 
+    // setlocale(LC_ALL, "");
+
     windowTitle_ = _titlename;
     windowhandle_ = nullptr;
     windowhandle_ = CreateWindowA(className_.c_str(), "TEST", WS_OVERLAPPEDWINDOW,
@@ -147,7 +149,7 @@ void GameEngineWindow::SetSizeAndPos(const float4& _size, const float4& _pos)
     SetWindowPos(windowhandle_, nullptr, _pos.ix(), _pos.iy(), Rc.right - Rc.left, Rc.bottom - Rc.top, 0);
 }
 
-void GameEngineWindow::Loop(void(*_loopFunc)())
+void GameEngineWindow::Loop(void(*_loopFunc)()) 
 {
     MSG msg;
     while (WindowOn)
@@ -172,7 +174,7 @@ void GameEngineWindow::Loop(void(*_loopFunc)())
 
 
         }
-        else
+        else 
         {
 
             if (nullptr == _loopFunc)

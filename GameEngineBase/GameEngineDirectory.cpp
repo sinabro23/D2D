@@ -30,17 +30,17 @@ GameEngineDirectory::GameEngineDirectory(GameEngineDirectory&& _other) noexcept
 
 //member Func
 
-std::string GameEngineDirectory::DirectoryName()
+std::string GameEngineDirectory::DirectoryName() 
 {
 	return path_.filename().string();
 }
 
-void GameEngineDirectory::MoveParent()
+void GameEngineDirectory::MoveParent() 
 {
 	path_ = path_.parent_path();
 }
 
-bool GameEngineDirectory::IsRoot()
+bool GameEngineDirectory::IsRoot() 
 {
 	return path_.root_directory() == path_;
 }
@@ -115,6 +115,6 @@ std::vector<GameEngineFile> GameEngineDirectory::GetAllFile(const std::string& _
 
 	}
 
-
+	
 	return Return;
 }

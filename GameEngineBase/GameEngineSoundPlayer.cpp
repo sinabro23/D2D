@@ -27,7 +27,7 @@ GameEngineSoundPlayer::GameEngineSoundPlayer(GameEngineSoundPlayer&& _other) noe
 
 //member Func
 
-bool GameEngineSoundPlayer::IsPlay()
+bool GameEngineSoundPlayer::IsPlay() 
 {
 	bool Check = false;
 	// 이 FMOD를 짠사람이 그냥 이렇게 짠거에요.
@@ -35,7 +35,7 @@ bool GameEngineSoundPlayer::IsPlay()
 	return Check;
 }
 
-void GameEngineSoundPlayer::PlayCountReset(int _Count /*= -1*/)
+void GameEngineSoundPlayer::PlayCountReset(int _Count /*= -1*/) 
 {
 	PlayCount = _Count;
 }
@@ -64,10 +64,10 @@ void GameEngineSoundPlayer::PlayOverLap(const std::string& _name, int _LoopCount
 	--PlayCount;
 
 	playChannel_->setLoopCount(_LoopCount);
-
+	
 }
 
-void GameEngineSoundPlayer::PlayAlone(const std::string& _name, int _LoopCount /*= 1*/)
+void GameEngineSoundPlayer::PlayAlone(const std::string& _name, int _LoopCount /*= 1*/) 
 {
 	// 함수를 만들어서 그함수를 다시 실행
 	GameEngineSound* SoundPtr = GameEngineSoundManager::GetInst().FindSound(_name);

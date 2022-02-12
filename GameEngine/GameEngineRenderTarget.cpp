@@ -10,7 +10,7 @@ GameEngineRenderTarget::GameEngineRenderTarget() // default constructer 디폴트 �
 
 GameEngineRenderTarget::~GameEngineRenderTarget() // default destructer 디폴트 소멸자
 {
-
+	
 }
 
 GameEngineRenderTarget::GameEngineRenderTarget(GameEngineRenderTarget&& _other) noexcept  // default RValue Copy constructer 디폴트 RValue 복사생성자
@@ -18,7 +18,7 @@ GameEngineRenderTarget::GameEngineRenderTarget(GameEngineRenderTarget&& _other) 
 
 }
 
-void GameEngineRenderTarget::Clear()
+void GameEngineRenderTarget::Clear() 
 {
 	for (size_t i = 0; i < RenderTargetViews_.size(); i++)
 	{
@@ -40,7 +40,7 @@ void GameEngineRenderTarget::Create(const std::string _TextureName, float4 _Clea
 }
 
 
-void GameEngineRenderTarget::Setting(int _Index)
+void GameEngineRenderTarget::Setting(int _Index) 
 {
 	if (0 >= RenderTargetViews_.size())
 	{
@@ -51,7 +51,7 @@ void GameEngineRenderTarget::Setting(int _Index)
 	{
 		GameEngineDevice::GetContext()->OMSetRenderTargets(static_cast<UINT>(RenderTargetViews_.size()), &RenderTargetViews_[0], nullptr);
 	}
-	else
+	else 
 	{
 		GameEngineDevice::GetContext()->OMSetRenderTargets(1, &RenderTargetViews_[_Index], nullptr);
 	}

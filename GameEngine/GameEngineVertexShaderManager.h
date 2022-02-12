@@ -31,7 +31,7 @@ public:
 		const std::string& _ShaderCode,
 		UINT _VersionHigh = 5,
 		UINT _VersionLow = 0
-	)
+	) 
 	{
 		return Create(_Name, _ShaderCode, _Name, _VersionHigh, _VersionLow);
 	}
@@ -42,7 +42,7 @@ public:
 		const std::string& _EntryPoint,
 		UINT _VersionHigh = 5,
 		UINT _VersionLow = 0
-	);
+		);
 	// 파일에서 로드
 	GameEngineVertexShader* Load(const std::string& _Path
 		, const std::string& _EntryPoint

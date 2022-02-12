@@ -24,7 +24,7 @@
 #include "GameEngineRenderingPipeLine.h"
 
 
-class GameEngineManagerHelper
+class GameEngineManagerHelper 
 {
 public:
 	static void ManagerRelease()

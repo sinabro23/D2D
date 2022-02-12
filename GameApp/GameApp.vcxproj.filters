@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="AppMain.cpp" />
+    <ClCompile Include="Appmain.cpp" />
     <ClCompile Include="PreCompile.cpp">
-      <Filter>PreCom</Filter>
+      <Filter>Precom</Filter>
     </ClCompile>
     <ClCompile Include="UserGame.cpp">
       <Filter>UserCore</Filter>
@@ -16,22 +16,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="PreCom">
-      <UniqueIdentifier>{8dbda121-5db9-47b1-8e4f-10dc72e09d59}</UniqueIdentifier>
+    <Filter Include="Precom">
+      <UniqueIdentifier>{0d0b75c7-5726-42b1-aa92-879451e131c1}</UniqueIdentifier>
     </Filter>
     <Filter Include="UserCore">
-      <UniqueIdentifier>{a37ce26e-a3c4-48c9-ac39-4a827cabf472}</UniqueIdentifier>
+      <UniqueIdentifier>{ae1c99fc-5ae2-4958-9205-8018fcb509b5}</UniqueIdentifier>
     </Filter>
     <Filter Include="CustomVertex">
-      <UniqueIdentifier>{4ecb6834-17ea-4f71-94bd-81749d051f43}</UniqueIdentifier>
+      <UniqueIdentifier>{16842167-2534-42db-8026-796a267ad72b}</UniqueIdentifier>
     </Filter>
     <Filter Include="UserCore\Resources">
-      <UniqueIdentifier>{025d5c07-acf0-43ce-ab33-ed6b1fa024da}</UniqueIdentifier>
+      <UniqueIdentifier>{097aabc9-6df0-4d53-a9ed-77681a8002e4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
-      <Filter>PreCom</Filter>
+      <Filter>Precom</Filter>
     </ClInclude>
     <ClInclude Include="UserGame.h">
       <Filter>UserCore</Filter>

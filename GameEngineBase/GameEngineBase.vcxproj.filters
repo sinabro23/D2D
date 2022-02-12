@@ -1,38 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClInclude Include="PreCompile.h">
+      <Filter>Precom</Filter>
+    </ClInclude>
     <ClInclude Include="GameEngineObjectBase.h">
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineObjectNameBase.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineDebug.h">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="PreCompile.h">
-      <Filter>PreCom</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineDirectory.h">
+    <ClInclude Include="GameEnginePath.h">
       <Filter>IO</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineFile.h">
       <Filter>IO</Filter>
     </ClInclude>
-    <ClInclude Include="GameEnginePath.h">
-      <Filter>IO</Filter>
-    </ClInclude>
     <ClInclude Include="GameEngineTime.h">
       <Filter>Time</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineSound.h">
-      <Filter>Media</Filter>
+    <ClInclude Include="GameEngineDebug.h">
+      <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineSoundManager.h">
-      <Filter>Media</Filter>
+      <Filter>Midia</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineSound.h">
+      <Filter>Midia</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineSoundPlayer.h">
-      <Filter>Media</Filter>
+      <Filter>Midia</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineString.h">
       <Filter>String</Filter>
@@ -43,22 +40,17 @@
     <ClInclude Include="GameEngineRandom.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineDirectory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PreCompile.cpp">
+      <Filter>Precom</Filter>
+    </ClCompile>
     <ClCompile Include="GameEngineObjectBase.cpp">
       <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineObjectNameBase.cpp">
       <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineDebug.cpp">
-      <Filter>Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="PreCompile.cpp">
-      <Filter>PreCom</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineDirectory.cpp">
-      <Filter>IO</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineFile.cpp">
       <Filter>IO</Filter>
@@ -69,14 +61,17 @@
     <ClCompile Include="GameEngineTime.cpp">
       <Filter>Time</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineSound.cpp">
-      <Filter>Media</Filter>
+    <ClCompile Include="GameEngineDebug.cpp">
+      <Filter>Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineSoundManager.cpp">
-      <Filter>Media</Filter>
+    <ClCompile Include="GameEngineSound.cpp">
+      <Filter>Midia</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineSoundPlayer.cpp">
-      <Filter>Media</Filter>
+      <Filter>Midia</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineSoundManager.cpp">
+      <Filter>Midia</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineString.cpp">
       <Filter>String</Filter>
@@ -87,43 +82,44 @@
     <ClCompile Include="GameEngineRandom.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineDirectory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Precom">
+      <UniqueIdentifier>{6038bb73-46ee-4717-abcf-ec990985223a}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Object">
-      <UniqueIdentifier>{18192196-22d6-42e1-ba86-0a7adba13d2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Debug">
-      <UniqueIdentifier>{09d09722-77bd-4411-84f9-42a4a2e5e4c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="PreCom">
-      <UniqueIdentifier>{0c450119-517a-4233-bc32-5d3f516b5fe5}</UniqueIdentifier>
+      <UniqueIdentifier>{da0cd900-cafe-4fae-b592-2961041b26c1}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO">
-      <UniqueIdentifier>{b3c04b5c-e78a-49d2-a8d7-112293c439bf}</UniqueIdentifier>
+      <UniqueIdentifier>{dc8582b1-46bd-4031-b80d-660116d4471c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Time">
-      <UniqueIdentifier>{8b64a3ae-663c-4fb3-a3de-636a234e0f25}</UniqueIdentifier>
+      <UniqueIdentifier>{6e718ba4-ed4e-4f3a-8082-697982dd4b1d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Media">
-      <UniqueIdentifier>{b1a93150-84fe-447a-8bfd-76fb98eeb6ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib">
-      <UniqueIdentifier>{fa08020f-0291-4eff-8240-eb1ba65b65c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib\FMOD">
-      <UniqueIdentifier>{552bab74-3eda-4ae8-bec2-be1c2bb1b3b2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib\FMOD\Debug">
-      <UniqueIdentifier>{f79931ce-ddfa-4dd2-8440-8979c7fb5abe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib\FMOD\Release">
-      <UniqueIdentifier>{b98551d4-9e05-4bef-a07d-f104ee486fd7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="String">
-      <UniqueIdentifier>{0f6c42da-cf23-45ef-bcdf-93de81b8a025}</UniqueIdentifier>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{c483dc05-afbc-42c8-a78f-32477801ba44}</UniqueIdentifier>
     </Filter>
     <Filter Include="Math">
-      <UniqueIdentifier>{5fdf0e02-afbd-483a-8f4d-d08d092e26d7}</UniqueIdentifier>
+      <UniqueIdentifier>{7fef56fa-182c-4929-9344-5fe6d40100c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Midia">
+      <UniqueIdentifier>{7e82b16e-2dc5-4f55-a1d4-e84fbbee7c9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib">
+      <UniqueIdentifier>{9f34ff00-87d7-4f01-844a-989cc585df57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib\FMOD">
+      <UniqueIdentifier>{c9e4a3c1-a52c-4401-9ffa-857fb0d096f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib\FMOD\Release">
+      <UniqueIdentifier>{e53dc9e8-8675-4ea5-bbbb-6bfdc6798d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib\FMOD\Debug">
+      <UniqueIdentifier>{7b47705d-bddd-45e4-8f62-bbfdb8daa55a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String">
+      <UniqueIdentifier>{449ccbeb-02fe-409a-8c5a-974793385175}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

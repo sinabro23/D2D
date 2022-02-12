@@ -15,7 +15,7 @@ private:	// member Var
 	FMOD::Channel* playChannel_; // 
 	int PlayCount;
 
-private:
+private:		
 	GameEngineSoundPlayer(); // default constructer 디폴트 생성자
 	~GameEngineSoundPlayer(); // default destructer 디폴트 소멸자
 

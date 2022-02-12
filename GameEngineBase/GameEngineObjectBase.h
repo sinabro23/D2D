@@ -13,7 +13,7 @@ private:	// member Var
 	GameEngineObjectBase* parent_;
 
 public:
-	bool IsNull()
+	bool IsNull() 
 	{
 		return nullptr == this;
 	}

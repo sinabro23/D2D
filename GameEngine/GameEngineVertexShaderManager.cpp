@@ -32,7 +32,7 @@ GameEngineVertexShaderManager::GameEngineVertexShaderManager(GameEngineVertexSha
 GameEngineVertexShader* GameEngineVertexShaderManager::Load(const std::string& _Path, const std::string& _EntryPoint,
 	UINT _VersionHigh, /*= 5*/
 	UINT _VersionLow /*= 0*/
-)
+	) 
 {
 
 	std::string FileName = GameEnginePath::GetFileName(_Path);
@@ -43,7 +43,7 @@ GameEngineVertexShader* GameEngineVertexShaderManager::Load(const std::string& _
 GameEngineVertexShader* GameEngineVertexShaderManager::Load(const std::string& _Name, const std::string& _Path, const std::string& _EntryPoint,
 	UINT _VersionHigh, /*= 5*/
 	UINT _VersionLow /*= 0*/
-)
+	)
 {
 	GameEngineVertexShader* FindRes = Find(_Name);
 
@@ -71,7 +71,7 @@ GameEngineVertexShader* GameEngineVertexShaderManager::Create(
 	const std::string& _EntryPoint,
 	UINT _VersionHigh,
 	UINT _VersionLow
-)
+	)
 {
 	GameEngineVertexShader* FindRes = Find(_Name);
 

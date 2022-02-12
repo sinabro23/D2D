@@ -25,7 +25,7 @@ GameEngineSound::GameEngineSound(GameEngineSound&& _other) noexcept
 
 bool GameEngineSound::Load(const std::string& _Path)
 {
-	if (FMOD_RESULT::FMOD_OK !=
+	if (FMOD_RESULT::FMOD_OK != 
 		GameEngineSoundManager::GetInst().soundSystem_->createSound(
 			_Path.c_str(), FMOD_LOOP_NORMAL, nullptr, &sound_))
 	{

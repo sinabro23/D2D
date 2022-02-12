@@ -16,7 +16,7 @@ public:	// member Var
 	UINT Offset_;
 	int IndexCount_;
 
-	int GetIndexCount()
+	int GetIndexCount() 
 	{
 		return IndexCount_;
 	}

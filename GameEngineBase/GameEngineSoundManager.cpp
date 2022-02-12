@@ -26,7 +26,7 @@ GameEngineSoundManager::~GameEngineSoundManager()
 		{
 			if (nullptr != *StartIter)
 			{
-				delete* StartIter;
+				delete *StartIter;
 			}
 		}
 		allSoundPlayer_.clear();
@@ -72,7 +72,7 @@ GameEngineSound* GameEngineSoundManager::FindSound(const std::string& _name)
 	return FindIter->second;
 }
 
-void GameEngineSoundManager::SoundUpdate()
+void GameEngineSoundManager::SoundUpdate() 
 {
 	if (nullptr == soundSystem_)
 	{
@@ -92,12 +92,12 @@ GameEngineSoundPlayer* GameEngineSoundManager::CreateSoundPlayer()
 	return  NewSoundplayer;
 }
 
-void GameEngineSoundManager::LoadSound(const std::string& _path)
+void GameEngineSoundManager::LoadSound(const std::string& _path) 
 {
 	LoadSound(GameEnginePath::GetFileName(_path), _path);
 }
 
-void GameEngineSoundManager::LoadSound(const std::string& _name, const std::string& _path)
+void GameEngineSoundManager::LoadSound(const std::string& _name, const std::string& _path) 
 {
 	if (nullptr != FindSound(_name))
 	{
@@ -118,7 +118,7 @@ void GameEngineSoundManager::LoadSound(const std::string& _name, const std::stri
 		std::map<std::string, GameEngineSound*>::value_type(_name, newLoadSound));
 }
 
-void GameEngineSoundManager::PlaySoundOneShot(const std::string& _name)
+void GameEngineSoundManager::PlaySoundOneShot(const std::string& _name) 
 {
 	GameEngineSound* SoundPtr = FindSound(_name);
 

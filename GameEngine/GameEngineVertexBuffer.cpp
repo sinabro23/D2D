@@ -66,7 +66,7 @@ void GameEngineVertexBuffer::Create(const void* _Data, size_t _Size, size_t _Cou
 	}
 }
 
-void GameEngineVertexBuffer::Setting()
+void GameEngineVertexBuffer::Setting() 
 {
 	GameEngineDevice::GetContext()->IASetVertexBuffers(0, 1, &Buffer_, &Size_, &Offset_);
 }

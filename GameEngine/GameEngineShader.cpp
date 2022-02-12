@@ -2,13 +2,14 @@
 #include "GameEngineShader.h"
 #include "GameEngineConstantBufferManager.h"
 
-GameEngineShader::GameEngineShader()
+GameEngineShader::GameEngineShader(ShaderType _Type)
 	: VersionHigh_(5)
 	, VersionLow_(0)
+	, Type_(_Type)
 {
 }
 
-GameEngineShader::~GameEngineShader()
+GameEngineShader::~GameEngineShader() 
 {
 }
 
@@ -38,7 +39,7 @@ void GameEngineShader::SetEntryPoint(const std::string& _EntryPoint)
 	EntryPoint_ = _EntryPoint;
 }
 
-void GameEngineShader::ResCheck()
+void GameEngineShader::ResCheck() 
 {
 
 	if (nullptr == CodeBlob_)
@@ -83,8 +84,8 @@ void GameEngineShader::ResCheck()
 		//D3D_SRV_DIMENSION           Dimension;      // Dimension (if texture) // 3차원 텍스처
 		//UINT                        NumSamples;     // Number of samples (0 if not MS texture)
 
-		std::string Name = ResInfo.Name; // cbuffer (TransformData) 이부분
-		unsigned int BindPoint = ResInfo.BindPoint; //b0 숫자
+		std::string Name = ResInfo.Name;
+		unsigned int BindPoint = ResInfo.BindPoint;
 		D3D_SHADER_INPUT_TYPE Type = ResInfo.Type;
 
 		switch (Type)

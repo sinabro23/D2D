@@ -28,7 +28,7 @@ void GameEngineIndexBuffer::Create(const std::vector<UINT>& _Datas, D3D11_USAGE 
 }
 
 
-void GameEngineIndexBuffer::Create(const void* _Data, size_t _Size, size_t _Count, D3D11_USAGE _Usage)
+void GameEngineIndexBuffer::Create(const void* _Data, size_t _Size, size_t _Count, D3D11_USAGE _Usage) 
 {
 	ResData_.pSysMem = _Data;
 	IndexCount_ = static_cast<UINT>(_Count);

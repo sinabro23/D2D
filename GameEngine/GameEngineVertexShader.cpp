@@ -1,9 +1,10 @@
 #include "PreCompile.h"
 #include "GameEngineVertexShader.h"
 #include <GameEngineBase/GameEngineString.h>
+#include "GameEngineShaderResHelper.h"
 
 GameEngineVertexShader::GameEngineVertexShader() // default constructer 디폴트 생성자
-
+	: GameEngineShader(ShaderType::VS)
 {
 
 }
@@ -27,7 +28,7 @@ GameEngineVertexShader::~GameEngineVertexShader() // default destructer 디폴트 �
 		CodeBlob_->Release();
 		CodeBlob_ = nullptr;
 	}
-
+	
 }
 
 bool GameEngineVertexShader::Create(
@@ -50,7 +51,7 @@ bool GameEngineVertexShader::Load(
 	const std::string& _EntryPoint,
 	UINT _VersionHigh,
 	UINT _VersionLow
-)
+) 
 {
 	SetVersion(_VersionHigh, _VersionLow);
 	SetEntryPoint(_EntryPoint);
@@ -111,7 +112,7 @@ bool GameEngineVertexShader::FileCompile(const std::string& _Path) {
 	}
 
 	LayOutCheck();
-	ResCheck(); // cbu같은거 체크
+	ResCheck();
 
 	return true;
 }
@@ -179,11 +180,11 @@ void GameEngineVertexShader::AddInputLayOut(
 	unsigned int _InputSlot,
 	unsigned int _InstanceDataStepRate,
 	D3D11_INPUT_CLASSIFICATION _inputClass
-)
+) 
 {
 	SemanticName_.push_back(_SemanticName);
 
-	D3D11_INPUT_ELEMENT_DESC LayOutDesc = { 0, };
+	D3D11_INPUT_ELEMENT_DESC LayOutDesc = {0,};
 
 	// https://docs.microsoft.com/ko-kr/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics
 	//                         "POSTION"
@@ -236,7 +237,7 @@ void GameEngineVertexShader::CreateLayOut()
 	}
 }
 
-void GameEngineVertexShader::LayOutCheck()
+void GameEngineVertexShader::LayOutCheck() 
 {
 	LayOutClear();
 
@@ -252,12 +253,12 @@ void GameEngineVertexShader::LayOutCheck()
 
 	if (S_OK != D3DReflect
 	(
-		CodeBlob_->GetBufferPointer(),
-		CodeBlob_->GetBufferSize(),
-		IID_ID3D11ShaderReflection,
-		reinterpret_cast<void**>(&CompilInfo)
+		CodeBlob_->GetBufferPointer(), 
+		CodeBlob_->GetBufferSize(), 
+		IID_ID3D11ShaderReflection, 
+		reinterpret_cast<void**>(& CompilInfo)
 	)
-		)
+	)
 	{
 		// 뭔가 코드가 이상함.
 		GameEngineDebug::MsgBoxError("쉐이더 컴파일 정보를 얻어오지 못했습니다.");
@@ -274,7 +275,7 @@ void GameEngineVertexShader::LayOutCheck()
 	// 
 	for (unsigned int i = 0; i < Info.InputParameters; i++)
 	{
-		D3D11_SIGNATURE_PARAMETER_DESC Input = { 0, };
+		D3D11_SIGNATURE_PARAMETER_DESC Input = {0,};
 		CompilInfo->GetInputParameterDesc(i, &Input);
 
 		DXGI_FORMAT Format = DXGI_FORMAT::DXGI_FORMAT_UNKNOWN;
@@ -392,7 +393,7 @@ void GameEngineVertexShader::LayOutCheck()
 			Name = NextName;
 			++PrevIndex;
 		}
-		else
+		else 
 		{
 			if (Name == NextName)
 			{
@@ -405,7 +406,7 @@ void GameEngineVertexShader::LayOutCheck()
 				++PrevIndex;
 				// 저 순서가 어때야 합니까?
 			}
-			else
+			else 
 			{
 				Name = NextName;
 				PrevIndex = 0;
@@ -427,20 +428,20 @@ void GameEngineVertexShader::LayOutCheck()
 	CreateLayOut();
 }
 
-void GameEngineVertexShader::LayOutClear()
+void GameEngineVertexShader::LayOutClear() 
 {
 	if (nullptr != LayOut_)
 	{
 		LayOut_->Release();
 	}
-
+	
 	LayOut_ = nullptr;
 	InputLayoutDesc_.clear();
 	SemanticName_.clear();
 	LayOutOffset_ = 0;
 }
 
-void GameEngineVertexShader::InputLayOutSetting()
+void GameEngineVertexShader::InputLayOutSetting() 
 {
 	if (nullptr == LayOut_)
 	{
@@ -450,7 +451,12 @@ void GameEngineVertexShader::InputLayOutSetting()
 	GameEngineDevice::GetInst().GetContext()->IASetInputLayout(LayOut_);
 }
 
-void GameEngineVertexShader::Setting()
+void GameEngineVertexShader::Setting() 
 {
 	GameEngineDevice::GetInst().GetContext()->VSSetShader(Shader_, nullptr, 0);
+}
+
+void GameEngineVertexShader::SetConstantBuffers(const GameEngineConstantBufferSetting* _Setting) 
+{
+	GameEngineDevice::GetContext()->VSSetConstantBuffers(_Setting->SettingIndex_, 1, &_Setting->Res_->GetBuffer());
 }

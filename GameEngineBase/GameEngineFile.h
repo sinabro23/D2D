@@ -11,7 +11,7 @@ private:
 	FILE* fileHandle_;
 	std::string OpenMode;
 
-public:
+public:		
 	GameEngineFile(); // default constructer 디폴트 생성자
 
 	GameEngineFile(const std::filesystem::path& _Path); // default constructer 디폴트 생성자
@@ -153,5 +153,4 @@ public:
 
 	std::string GetString();
 };
-
 

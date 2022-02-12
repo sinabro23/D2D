@@ -18,7 +18,7 @@ public:
 	bool Load(const std::string& _Path);
 
 
-private:
+private:		
 	GameEngineSound(); // default constructer 디폴트 생성자
 	~GameEngineSound(); // default destructer 디폴트 소멸자
 

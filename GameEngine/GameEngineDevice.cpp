@@ -12,12 +12,12 @@ ID3D11Device* GameEngineDevice::Device_ = nullptr;
 ID3D11DeviceContext* GameEngineDevice::Context_ = nullptr;
 IDXGISwapChain* GameEngineDevice::SwapChain_ = nullptr;
 
-ID3D11Device* GameEngineDevice::GetDevice()
+ID3D11Device* GameEngineDevice::GetDevice() 
 {
 	return Device_;
 }
 
-ID3D11DeviceContext* GameEngineDevice::GetContext()
+ID3D11DeviceContext* GameEngineDevice::GetContext() 
 {
 	return Context_;
 }
@@ -48,7 +48,7 @@ GameEngineDevice::~GameEngineDevice() // default destructer 디폴트 소멸자
 	}
 }
 
-void GameEngineDevice::Initialize()
+void GameEngineDevice::Initialize() 
 {
 	if (nullptr == GameEngineWindow::GetInst().GetWindowHWND())
 	{
@@ -72,7 +72,7 @@ void GameEngineDevice::Initialize()
 
 	if (
 		S_OK != D3D11CreateDevice(
-			nullptr,
+			nullptr,  
 			D3D_DRIVER_TYPE::D3D_DRIVER_TYPE_HARDWARE,
 			nullptr,
 			iFlag,
@@ -97,7 +97,7 @@ void GameEngineDevice::Initialize()
 
 void GameEngineDevice::CreateSwapChain()
 {
-	if (0 >= GameEngineWindow::GetInst().GetSize().x &&
+	if (0 >= GameEngineWindow::GetInst().GetSize().x && 
 		0 >= GameEngineWindow::GetInst().GetSize().y)
 	{
 		GameEngineDebug::MsgBoxError("Screen Size Zero");
@@ -166,7 +166,7 @@ void GameEngineDevice::CreateSwapChain()
 	{
 		GameEngineDebug::MsgBoxError("IDXGIFactory null");
 	}
-
+	
 	if (S_OK != pF->CreateSwapChain(Device_, &ScInfo, &SwapChain_))
 	{
 		GameEngineDebug::MsgBoxError("SwapChain Create Error");

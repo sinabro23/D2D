@@ -1,7 +1,7 @@
 #include "Precompile.h"
 #include "UserGame_Resources_Shader.h"
 
-void AppShaderLoad()
+void AppShaderLoad() 
 {
 	GameEngineDirectory Dir;
 	Dir.MoveParent("D2D");
@@ -17,7 +17,6 @@ void AppShaderLoad()
 		std::string FileName = ShaderFile.GetFileNameWithOutExtension();
 		std::string AllCode = ShaderFile.GetString();
 
-		// find() 함수에 의해서 found 되지 못하는 경우 npos값이 리턴
 		if (std::string::npos != AllCode.find(FileName + "_VS"))
 		{
 			GameEngineVertexShader* Ptr = GameEngineVertexShaderManager::GetInst().Load(FileName + "_VS", ShaderFile.GetFullPath(), FileName + "_VS");

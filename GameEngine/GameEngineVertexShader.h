@@ -46,9 +46,11 @@ public:
 
 	bool FileCompile(const std::string& _Path);
 
-	/// <summary>
-	/// ////////////////////////////// InputLayOutSettting
-	/// </summary>
+	void SetConstantBuffers(const GameEngineConstantBufferSetting* _Setting) override;
+
+/// <summary>
+/// ////////////////////////////// InputLayOutSettting
+/// </summary>
 
 private:
 	ID3D11InputLayout* LayOut_;

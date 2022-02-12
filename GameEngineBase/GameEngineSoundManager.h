@@ -68,7 +68,7 @@ public:
 public:
 	void SoundUpdate();
 
-private:
+private:		
 	GameEngineSoundManager(); // default constructer 디폴트 생성자
 	~GameEngineSoundManager(); // default destructer 디폴트 소멸자
 

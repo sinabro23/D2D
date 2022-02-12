@@ -32,7 +32,7 @@ private:
 
 public:
 	template<typename UserGameType>
-	static void Start()
+	static void Start() 
 	{
 		GameEngineDebug::LeakCheckOn();
 
@@ -45,8 +45,8 @@ public:
 		WindowCreate(NewUserGame);
 
 		NewUserGame.EngineInitialize();
-		NewUserGame.Initialize();
 		NewUserGame.ResourcesLoad();
+		NewUserGame.Initialize();
 
 		MainCore_ = &NewUserGame;
 
