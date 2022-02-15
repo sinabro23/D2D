@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameEngineActor.h" />
     <ClInclude Include="GameEngineConstantBuffer.h">
       <SubType>
       </SubType>
@@ -43,6 +44,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineLevel.h" />
     <ClInclude Include="GameEngineMesh.h">
       <SubType>
       </SubType>
@@ -120,6 +122,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameEngineActor.cpp" />
     <ClCompile Include="GameEngineConstantBuffer.cpp">
       <SubType>
       </SubType>
@@ -144,6 +147,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineLevel.cpp" />
     <ClCompile Include="GameEngineMesh.cpp">
       <SubType>
       </SubType>
