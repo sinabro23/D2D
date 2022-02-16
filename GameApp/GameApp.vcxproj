@@ -176,6 +176,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Appmain.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayLevel.cpp" />
     <ClCompile Include="PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Precompile.h</PrecompiledHeaderFile>
@@ -186,6 +188,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Precompile.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="TitleLevel.cpp" />
     <ClCompile Include="UserGame.cpp">
       <SubType>
       </SubType>
@@ -198,7 +201,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CustomVertex.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayLevel.h" />
     <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="TitleLevel.h" />
     <ClInclude Include="UserGame.h">
       <SubType>
       </SubType>

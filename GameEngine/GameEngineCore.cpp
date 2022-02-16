@@ -27,7 +27,7 @@ GameEngineCore::GameEngineCore(GameEngineCore&& _other) noexcept  // default RVa
 /// /////////////////////////// member
 /// </summary>
 
-void GameEngineCore::EngineInitialize() 
+void GameEngineCore::EngineInitialize()
 {
 	GameEngineSoundManager::GetInst().Initialize();
 }
@@ -35,6 +35,15 @@ void GameEngineCore::EngineInitialize()
 
 void GameEngineCore::EngineDestroy()
 {
+	for (auto& Level : AllLevel_)
+	{
+		if (true)
+		{
+			delete  Level.second;
+			Level.second = nullptr;
+		}
+	}
+
 	GameEngineManagerHelper::ManagerRelease();
 	GameEngineTime::Destroy();
 	GameEngineDevice::Destroy();
@@ -45,7 +54,7 @@ void GameEngineCore::EngineDestroy()
 /// /////////////////////////// static
 /// </summary>
 
-void GameEngineCore::MainLoop() 
+void GameEngineCore::MainLoop()
 {
 	GameEngineTime::GetInst().TimeCheck();
 	GameEngineSoundManager::GetInst().SoundUpdate();
@@ -56,12 +65,13 @@ void GameEngineCore::MainLoop()
 		{
 			CurrentLevel_ = NextLevel_;
 		}
-		else 
+		else
 		{
 			CurrentLevel_->LevelChangeEndEvent();
 			NextLevel_->LevelChangeStartEvent();
 			CurrentLevel_ = NextLevel_;
 		}
+		GameEngineTime::GetInst().TimeCheckReset();
 	}
 
 	if (nullptr == CurrentLevel_)
@@ -69,10 +79,11 @@ void GameEngineCore::MainLoop()
 		GameEngineDebug::MsgBoxError("현재 레벨이 존재하지 않습니다.");
 	}
 
-	CurrentLevel_->Update(GameEngineTime::GetInst().GetDeltaTime());
+	CurrentLevel_->LevelUpdate(GameEngineTime::GetInst().GetDeltaTime());
+	CurrentLevel_->ActorUpdate(GameEngineTime::GetInst().GetDeltaTime());
 
-	
-	
+
+
 
 	// 오브젝트 루프
 
@@ -88,11 +99,9 @@ void GameEngineCore::WindowCreate(GameEngineCore& _RuntimeCore)
 	GameEngineDevice::GetInst().Initialize();
 }
 
-void GameEngineCore::Loop() 
+void GameEngineCore::Loop()
 {
-	
-
-
+	GameEngineTime::GetInst().TimeCheckReset();
 	GameEngineWindow::GetInst().Loop(&GameEngineCore::MainLoop);
 }
 
@@ -112,11 +121,6 @@ GameEngineLevel* GameEngineCore::LevelFind(const std::string& _Level)
 	return nullptr;
 }
 
-void GameEngineCore::LevelCreate(const std::string& _Level) 
-{
-
-}
-
 
 void GameEngineCore::LevelChange(const std::string& _Level)
 {
@@ -126,6 +130,6 @@ void GameEngineCore::LevelChange(const std::string& _Level)
 	{
 		GameEngineDebug::MsgBoxError("Next Level Is Nullptr");
 	}
-	
+
 	NextLevel_ = FindLevel;
 }

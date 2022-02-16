@@ -14,6 +14,15 @@
     <ClCompile Include="UserGame_Resources_Shader.cpp">
       <Filter>UserCore\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precom">
@@ -28,6 +37,12 @@
     <Filter Include="UserCore\Resources">
       <UniqueIdentifier>{097aabc9-6df0-4d53-a9ed-77681a8002e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor">
+      <UniqueIdentifier>{8199c531-a3f5-48d6-9948-285ae751952c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{18cd74fe-2f2b-4685-b468-755a499a4874}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -41,6 +56,15 @@
     </ClInclude>
     <ClInclude Include="UserGame_Resources_Shader.h">
       <Filter>UserCore\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Level</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

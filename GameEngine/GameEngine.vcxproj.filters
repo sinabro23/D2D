@@ -40,6 +40,12 @@
     <Filter Include="Object">
       <UniqueIdentifier>{92f29754-ca07-493d-b460-1ad43cab302d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Component">
+      <UniqueIdentifier>{e0d4b684-ea89-48e8-81c7-f6682c5a9070}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Component\Transform">
+      <UniqueIdentifier>{833c442a-7dba-4fca-82c0-8db70772057e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -125,6 +131,15 @@
     <ClInclude Include="GameEngineLevel.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineTransform.h">
+      <Filter>Object\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineComponent.h">
+      <Filter>Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineTransformComponent.h">
+      <Filter>Object\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
@@ -206,6 +221,15 @@
     </ClCompile>
     <ClCompile Include="GameEngineLevel.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineTransform.cpp">
+      <Filter>Object\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineComponent.cpp">
+      <Filter>Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineTransformComponent.cpp">
+      <Filter>Object\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

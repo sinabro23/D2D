@@ -3,8 +3,9 @@
 
 void AppShaderLoad() 
 {
+
 	GameEngineDirectory Dir;
-	Dir.MoveParent("D2D");
+	Dir.MoveParent("AR38");
 	Dir.MoveChild("Resources");
 	Dir.MoveChild("Shader");
 

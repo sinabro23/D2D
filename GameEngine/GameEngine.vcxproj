@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineActor.h" />
+    <ClInclude Include="GameEngineComponent.h" />
     <ClInclude Include="GameEngineConstantBuffer.h">
       <SubType>
       </SubType>
@@ -94,6 +95,8 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineTransform.h" />
+    <ClInclude Include="GameEngineTransformComponent.h" />
     <ClInclude Include="GameEngineVertexBuffer.h">
       <SubType>
       </SubType>
@@ -123,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp" />
+    <ClCompile Include="GameEngineComponent.cpp" />
     <ClCompile Include="GameEngineConstantBuffer.cpp">
       <SubType>
       </SubType>
@@ -197,6 +201,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineTransform.cpp" />
+    <ClCompile Include="GameEngineTransformComponent.cpp" />
     <ClCompile Include="GameEngineVertexBuffer.cpp">
       <SubType>
       </SubType>

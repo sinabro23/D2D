@@ -239,7 +239,7 @@ void GameEngineVertexShader::CreateLayOut()
 
 void GameEngineVertexShader::LayOutCheck() 
 {
-	LayOutClear(); //버텍스 쉐이더에 들어가는 레이아웃 비우기.
+	LayOutClear();
 
 	if (nullptr == CodeBlob_)
 	{

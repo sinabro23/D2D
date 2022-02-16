@@ -1,19 +1,23 @@
 #include "PreCompile.h"
 #include "GameEngineActor.h"
 #include "GameEngineLevel.h"
+#include "GameEngineTransform.h"
 
 GameEngineActor::GameEngineActor() 
-	: Level(nullptr)
+	: Level_(nullptr)
+	, Transform_(nullptr)
 {
+	Transform_ = new GameEngineTransform();
 }
 
 GameEngineActor::~GameEngineActor() 
 {
+
 }
 
 void GameEngineActor::SetLevel(GameEngineLevel* _Level) 
 {
-	Level = _Level;
+	Level_ = _Level;
 }
 
 void GameEngineActor::Update(float _DeltaTime)
